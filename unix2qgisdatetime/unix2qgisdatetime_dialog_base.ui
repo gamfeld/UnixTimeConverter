@@ -1,7 +1,7 @@
-<ui version="4.0" >
+<ui version="4.0">
  <class>UnixTimeConverterDialogBase</class>
- <widget class="QDialog" name="UnixTimeConverterDialogBase" >
-  <property name="geometry" >
+ <widget class="QDialog" name="UnixTimeConverterDialogBase">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,26 +9,135 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Convert Unix Time</string>
   </property>
-  <widget class="QDialogButtonBox" name="button_box" >
-   <property name="geometry" >
+
+  <!-- Time format selector -->
+  <widget class="QLabel" name="labelFormat">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select Time Format:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="formatComboBox">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>180</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+
+  <!-- Layer selector -->
+  <widget class="QLabel" name="labelLayer">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select Layer:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="layerComboBox">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>70</y>
+     <width>180</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+
+  <!-- Field selector -->
+  <widget class="QLabel" name="labelField">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select Field:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="fieldComboBox">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>120</y>
+     <width>180</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+
+  <!-- Convert button -->
+  <widget class="QPushButton" name="convertButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>170</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Convert</string>
+   </property>
+  </widget>
+
+  <!-- Status label -->
+  <widget class="QLabel" name="statusLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>360</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Status:</string>
+   </property>
+  </widget>
+
+  <!-- Standard OK/Cancel buttons -->
+  <widget class="QDialogButtonBox" name="button_box">
+   <property name="geometry">
     <rect>
      <x>30</x>
-     <y>240</y>
+     <y>260</y>
      <width>341</width>
      <height>32</height>
     </rect>
    </property>
-   <property name="orientation" >
+   <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
-   <property name="standardButtons" >
+   <property name="standardButtons">
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
+
  </widget>
+
  <resources/>
  <connections>
   <connection>
@@ -37,13 +146,13 @@
    <receiver>UnixTimeConverterDialogBase</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="source_label" >
+    <hint type="source_label">
      <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destination_label" >
-     <x>157</x>
      <y>274</y>
+    </hint>
+    <hint type="destination_label">
+     <x>157</x>
+     <y>294</y>
     </hint>
    </hints>
   </connection>
@@ -53,15 +162,16 @@
    <receiver>UnixTimeConverterDialogBase</receiver>
    <slot>reject()</slot>
    <hints>
-    <hint type="source_label" >
+    <hint type="source_label">
      <x>316</x>
-     <y>260</y>
+     <y>280</y>
     </hint>
-    <hint type="destination_label" >
+    <hint type="destination_label">
      <x>286</x>
-     <y>274</y>
+     <y>294</y>
     </hint>
    </hints>
   </connection>
  </connections>
 </ui>
+
