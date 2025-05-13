@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/unix2qgisdatetime" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
