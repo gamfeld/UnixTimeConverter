@@ -1,12 +1,12 @@
-### unix2qgisdatetime
-A very simple QT plugin for QGIs which can read time-second formats (Unix Timestamp, Unix Epoch, GPS Time) and appends an equivalent human-readable datetime field following ISO 8601 convention [YYYY-MM-DDTHH:MM:SSZ]
-Developed using [Plugin Builder](https://plugins.qgis.org/plugins/pluginbuilder/)
+## Unix Time Converter for QGIS
+A very rudimentary QT plugin for QGIs which can read time-second formats (Unix Timestamp, Unix Epoch, GPS Time) and appends an equivalent human-readable datetime field following ISO 8601 convention [YYYY-MM-DDTHH:MM:SSZ]. This is useful for visualizing time-series data or integrating timestamps into time-aware layers supported by most softwares.
 
-***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************
+### Installation
+1. Download or clone this repository
+2. Copy the plugin folder (```unix2qgisdatetime/```) to your QGIs plugins directory:
+   - Linux: ```~/.local/share/QGIS/QGIS3/profiles/default/python/plugins/```
+   - Windows: ```%APPDATA%\QGIS\QGIS3\profiles\default\python\plugins\
+3. Open QGIS and navigate to Plugins --> Manage and Install Plugins
+4. Enable the Unix Time Converter plugin from the list
+
+Developed using [Plugin Builder](https://plugins.qgis.org/plugins/pluginbuilder/)
