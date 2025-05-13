@@ -21,11 +21,6 @@
  *                                                                         *
  ***************************************************************************/
 """
-# -*- coding: utf-8 -*-
-"""
-UnixTimeConverterDialog
-QGIS plugin dialog logic.
-"""
 
 import os
 from qgis.PyQt import uic
@@ -37,36 +32,32 @@ FORM_CLASS, _ = uic.loadUiType(os.path.join(
     'unix2qgisdatetime_dialog_base.ui'
 ))
 
-
 class UnixTimeConverterDialog(QDialog, FORM_CLASS):
     def __init__(self, parent=None):
         super(UnixTimeConverterDialog, self).__init__(parent)
         self.setupUi(self)
 
-        # 1) Populate time‐format choices
-        formats = ["Epoch Milliseconds", "GPS Time", "Unix Seconds"]
+        formats = ["Epoch Milliseconds", "GPS Time", "Unix Seconds"]    # choices
         self.formatComboBox.addItems(formats)
 
-        # 2) Grab all vector layers in the project
+        # Grab all vector layers in the project (idc about validity at this point)
         self.layers = [
             lyr for lyr in QgsProject.instance().mapLayers().values()
             if lyr.type() == lyr.VectorLayer
         ]
-        # fill layerComboBox
-        self.layerComboBox.addItems([lyr.name() for lyr in self.layers])
+        self.layerComboBox.addItems([lyr.name() for lyr in self.layers]) # fill layerComboBox
 
-        # 3) When the user picks a layer, refill the field list
+        # When usr picks a layer, refill field list
         self.layerComboBox.currentIndexChanged.connect(self.populate_fields)
-        # initialize fields for first layer
         if self.layers:
             self.populate_fields(0)
 
-        # 4) Convert button just closes the dialog with Accepted
-        #    so your plugin’s run() can pick up the selections
         self.convertButton.clicked.connect(self.accept)
+        # convert button just closes the dialog with 'Accepted',
+        # so plugin's run() can pick up the selections lol
 
-    def populate_fields(self, idx):
-        """Fill fieldComboBox with the attribute names of layer idx."""
+    def populate_fields(self, idx):             
+        """Fill fieldComboBox with the attribute names of layer idx!!"""
         self.fieldComboBox.clear()
         layer = self.layers[idx]
         names = [fld.name() for fld in layer.fields()]
